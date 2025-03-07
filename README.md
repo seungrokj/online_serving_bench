@@ -18,7 +18,7 @@ export SGLANG_ROCM_FUSED_DECODE_MLA=1
 export RCCL_MSCCL_ENABLE=0 
 export CK_MOE=1 
 # HF model name or saved HF model path
-hf_model=deepseek-ai/DeepSeek-V3
+export hf_model=deepseek-ai/DeepSeek-V3
 
 python3 -m sglang.launch_server \
 	--model $hf_model \
@@ -50,7 +50,7 @@ export VLLM_USE_TRITON_FLASH_ATTN=1
 export VLLM_USE_ROCM_FP8_FLASH_ATTN=0
 export VLLM_FP8_PADDING=1
 # HF model name or saved HF model path
-hf_model=deepseek-ai/DeepSeek-V3
+export hf_model=deepseek-ai/DeepSeek-V3
 vllm serve $hf_model \
             --tensor-parallel-size 8  \
             --gpu-memory-utilization 0.95 \
@@ -64,7 +64,5 @@ vllm serve $hf_model \
 
 ### Access from a client
 ```bash
-git clone https://github.com/sgl-project/sglang.git
-
-./client.sh vllm 
+./client.sh vllm $hf_model
 ```
