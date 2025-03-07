@@ -1,6 +1,6 @@
 #!/bin/bash
 # Usage: ./client.sh sglang
-# Usage: ./client.sh vllm deepseek-ai/DeepSeek-V3
+# Usage: ./client.sh vllm 
 backend=$1
 
 CON="1 2 4 8 16 32 64 128"
@@ -36,7 +36,7 @@ do
 	if [ $backend == "sglang" ]; then
 	    CMD="python3 -m sglang.bench_serving"
 	elif [ $backend == "vllm" ]; then
-	    CMD="python3 /app/vllm/benchmarks/benchmark_serving.py --model $2"
+	    CMD="python3 sglang/python/sglang/bench_serving.py"
 	else
 	    echo "unsupported llm backend"
 	fi
