@@ -12,7 +12,7 @@ cd /workspace
 
 ### Launch sglang server
 ```bash
-export DEBUG_HIP_BLOCK_SYN=1024 
+export DEBUG_HIP_BLOCK_SYNC=1024 
 export GPU_FORCE_BLIT_COPY_SIZE=64 
 export SGLANG_ROCM_FUSED_DECODE_MLA=1 
 export RCCL_MSCCL_ENABLE=0 
